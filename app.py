@@ -38,7 +38,7 @@ def suggest_savings(input: str) -> str:
 # 🤖 Initialize Agent
 llm = ChatOpenAI(temperature=0, openai_api_key=st.secrets["OPENAI_API_KEY"])
 tools = [log_expense, show_summary, suggest_savings]
-agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,handle_parsing_errors=True, verbose=True)
 
 # 🖼️ Streamlit UI
 st.title("💸 Agentic Expense Tracker")
