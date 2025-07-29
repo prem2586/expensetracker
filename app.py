@@ -14,14 +14,14 @@ def log_expense(entry: str) -> str:
     return f"Logged: {entry}"
 
 @tool
-def show_summary(_: str = "") -> str:
+def show_summary(_: str) -> str:
     """Show a summary of all logged expenses."""
     if not expense_log:
         return "No expenses logged yet."
     return "\n".join(f"{i+1}. {e}" for i, e in enumerate(expense_log))
 
 @tool
-def suggest_savings(_: str = "") -> str:
+def suggest_savings(_: str) -> str:
     """Suggest basic savings tips based on logged expenses."""
     tips = []
     for e in expense_log:
